@@ -22,11 +22,11 @@ services:
     image: prawee/strapi
     container_name: 69-s1-app
     ports:
-      - 8181:1337
+      - ${APP_PORT}:1337
     environment:
-      - DATABASE_CLIENT=postgres
-      - DATABASE_NAME=prawee
-      - DATABASE_HOST=172.30.113.245
-      - DATABASE_PORT= 54327
-      - DATABASE_USERNAME=prawee
-      - DATABASE_PASSWORD=1p@ssw0rd
+      - DATABASE_CLIENT=${DATABASE_CLIENT}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
