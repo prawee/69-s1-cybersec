@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: 69-s1-db
+    ports:
+      - 54327:5432
+    environment:
+      - POSTGRES_PASSWORD=1p@ssw0rd
+      - POSTGRES_USER=prawee
+      - POSTGRES_DB=prawee
+    volumes:
+      - ./data/data:/var/lib/postgresql/data
