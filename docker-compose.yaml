@@ -10,3 +10,11 @@ services:
       - POSTGRES_DB=prawee
     volumes:
       - ./data/data:/var/lib/postgresql/data
+  admin:
+    image: dpage/pgadmin4
+    container_name: 69-s1-admin
+    ports:
+      - 8081:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=prawee.w@fte.kmutnb.ac.th
+      - PGADMIN_DEFAULT_PASSWORD=1p@ssw0rd
