@@ -33,13 +33,13 @@ Content-Type: application/json
 }
 
 ### 1.3.1 Reset Password
-// เอา code จากลิงก์ในอีเมลที่ 1.3 ส่งกลับไปใส่ใน field code
+// เอา token (query param ชื่อ code) จากลิงก์ในอีเมลที่ 1.3 ส่งกลับไปใส่ใน field resetPasswordToken
 POST http://localhost:9091/admin/reset-password
 Content-Type: application/json
 
 {
-    "code": "",
-    "newPassword": ""
+    "resetPasswordToken": "",
+    "password": ""
 }
 
 ### 1.4 Profile
@@ -84,7 +84,8 @@ Content-Type: application/json
 
 {
     "code": "",
-    "password": ""
+    "password": "",
+    "passwordConfirmation": ""
 }
 
 ### 2.4 Profile
