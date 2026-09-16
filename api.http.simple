@@ -77,7 +77,15 @@ Content-Type: application/json
     "email": ""
 }
 
-### 2.3.1 Reset Password???
+### 2.3.1 Reset Password
+// เอา code จากลิงก์ในอีเมลที่ 2.3 ส่งกลับไปใส่ใน field code
+POST http://localhost:9091/api/auth/reset-password
+Content-Type: application/json
+
+{
+    "code": "",
+    "password": ""
+}
 
 ### 2.4 Profile
 // เอา token จาก response ของข้อ 2.1 ไปใส่ใน Authorization
