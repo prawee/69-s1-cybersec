@@ -18,10 +18,10 @@ POST http://localhost:9091/admin/register-admin
 Content-Type: application/json
 
 {
-    "firstname": "",
-    "lastname": "",
-    "email": "",
-    "password": ""
+    "firstname": "Prawee",
+    "lastname": "Wong",
+    "email": "{{$dotenv ADMIN_EMAIL}}",
+    "password": "{{$dotenv ADMIN_PASSWORD}}"
 }
 
 ### 1.3 Forgot Password
@@ -29,7 +29,7 @@ POST http://localhost:9091/admin/forgot-password
 Content-Type: application/json
 
 {
-    "email": ""
+    "email": "{{$dotenv ADMIN_EMAIL}}"
 }
 
 ### 1.3.1 Reset Password
@@ -38,14 +38,14 @@ POST http://localhost:9091/admin/reset-password
 Content-Type: application/json
 
 {
-    "resetPasswordToken": "",
-    "password": ""
+    "resetPasswordToken": "{{$dotenv RESET_CODE}}",
+    "password": "{{$dotenv ADMIN_PASSWORD}}"
 }
 
 ### 1.4 Profile
 // เอา token จาก response ของข้อ 1.1 ไปใส่ใน Authorization
 GET http://localhost:9091/admin/users/me
-Authorization: Bearer <token_from_1.1>
+Authorization: Bearer {{$dotenv ADMIN_TOKEN}}
 
 ## 2.User
 
@@ -54,8 +54,8 @@ POST http://localhost:9091/api/auth/local
 Content-Type: application/json
 
 {
-    "identifier": "",
-    "password": ""
+    "identifier": "{{$dotenv USER_EMAIL}}",
+    "password": "{{$dotenv USER_PASSWORD}}"
 }
 
 ### 2.2 Signup
@@ -63,9 +63,9 @@ POST http://localhost:9091/api/auth/local/register
 Content-Type: application/json
 
 {
-    "username": "",
-    "email": "",
-    "password": ""
+    "username": "{{$dotenv USER_USERNAME}}",
+    "email": "{{$dotenv USER_EMAIL}}",
+    "password": "{{$dotenv USER_PASSWORD}}"
 }
 
 ### 2.3 Forgot Password
@@ -74,7 +74,7 @@ POST http://localhost:9091/api/auth/forgot-password
 Content-Type: application/json
 
 {
-    "email": ""
+    "email": "{{$dotenv USER_EMAIL}}"
 }
 
 ### 2.3.1 Reset Password
@@ -83,12 +83,12 @@ POST http://localhost:9091/api/auth/reset-password
 Content-Type: application/json
 
 {
-    "code": "",
-    "password": "",
-    "passwordConfirmation": ""
+    "code": "{{$dotenv RESET_CODE}}",
+    "password": "{{$dotenv USER_PASSWORD}}",
+    "passwordConfirmation": "{{$dotenv USER_PASSWORD}}"
 }
 
 ### 2.4 Profile
 // เอา token จาก response ของข้อ 2.1 ไปใส่ใน Authorization
 GET http://localhost:9091/api/users/me
-Authorization: Bearer <token_from_2.1>
+Authorization: Bearer {{$dotenv USER_TOKEN}}
